@@ -1,0 +1,34 @@
+default:
+  service:
+    name: sr-nodejs
+    port: 4000
+    databases:
+      main:
+        dialect: mongodb
+        host: mongodb+srv://@devroa.gofhu.mongodb.net/test
+        port: 27017
+        dbName: users
+        user: roasg
+        password: 9OmH981UGQLrhmx4
+    jwt:
+      client_id: groa_service_client_id
+      encryption: "cbc9f912893fb24f4039a2d38e40c1dbb6f1de50a7f2f5b567eb0c066fe26685d489d80257b91e6375d2bfb60b8da112+@hWEC9U5-avN?J2gnxsQZyjc+U=e9kK+795LuD$46R"
+      expiration: 1h
+      refresh_token:
+        expiration: 30d
+        encryption: "9998599fd372addfab3520f801cd69b3f871ef8273439a659e8eade913c0c2699bda635c90eb2caa4c48cee1a34bdc01"
+    auth:
+      salt: "Xil4*(b.P;lBS3{E-@?XWKnW@dr)]lU"
+    external:
+      marvelApi: 
+        url: https://gateway.marvel.com/v1/public
+        apiKey: 2e8a2ff33356d2fb4775cf82dfc5f15e
+        ts: 1000
+        hash: 28adf06fbe2dd2e21ed76bc37bcb9ba9
+  metadata:
+    enviroment: local
+    cookie:
+      domain: ''
+      sameSite: false
+      httpOnly: false
+      secure: false
