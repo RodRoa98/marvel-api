@@ -10,8 +10,6 @@ import { parseMarvelRes } from './marvel.map';
 const logger = Logger.getLogger('marvel-controller');
 
 export default class MarvelController {
-  constructor() { }
-
   public async findCharacters(req: Request, res: Response) {
     const [marvelErr, marvelRes] = await to(MarvelAPI.getCharacters());
     if (marvelErr) {

@@ -33,7 +33,8 @@ const defaultRetry = {
 };
 
 export function fetcher(url, opts = {}) {
-  return fetch.default(url, opts)
+  return fetch
+    .default(url, opts)
     .then((r) => {
       const { status, statusText } = r;
 

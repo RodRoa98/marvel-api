@@ -6,8 +6,11 @@ export const parseMarvelRes = (marvelRes) => ({
     limit: marvelRes.data.limit,
     total: marvelRes.data.total,
     count: marvelRes.data.count,
-    results: marvelRes.data.results.map(
-      (r) => ({ id: r.id, name: r.name, description: r.description, image: `${r.thumbnail.path}.${r.thumbnail.extension}` })
-    ),
-  }
+    results: marvelRes.data.results.map((r) => ({
+      id: r.id,
+      name: r.name,
+      description: r.description,
+      image: `${r.thumbnail.path}.${r.thumbnail.extension}`,
+    })),
+  },
 });
