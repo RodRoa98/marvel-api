@@ -26,7 +26,6 @@ const auth = AuthMiddleware.authenticate({ logger, config });
  * @security JWT
  */
 // Retrieve all Marvel Characters
-// router.get('/characters', auth, catchError(controller.findCharacters));
-router.get('/characters', catchError(controller.findCharacters));
+router.get('/characters', auth, catchError(controller.findCharacters));
 
 export default router;

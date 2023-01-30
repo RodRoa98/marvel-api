@@ -37,13 +37,14 @@ export default class UserController extends BaseController {
 
   public async update(req: Request, res: Response) {
     const { id } = req.params;
+    const userReq = req.body;
     const [_, userExist] = await to(User.findOne({ id }).exec());
 
     if (!userExist) {
       return NotFound(res, { message: 'User not found' });
     }
 
-    const [updateErr, userUpdated] = await to(User.findOneAndUpdate({ id }).exec());
+    const [updateErr, userUpdated] = await to(User.findOneAndUpdate({ id }, userReq).exec());
     if (updateErr) {
       throwDBError(updateErr);
     }
