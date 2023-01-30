@@ -24,7 +24,7 @@ const userSchema = new Schema(
     mobile: String,
     active: {
       type: Number,
-      enum: Object.values(BIT_VALUE),
+      enum: [BIT_VALUE.FALSE, BIT_VALUE.TRUE],
       default: BIT_VALUE.TRUE,
     }, // INFO: Needed for validation in authenticate method
     characterList: [character],

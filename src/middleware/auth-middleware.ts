@@ -23,7 +23,7 @@ export const authenticate = ({ logger, config }) => {
 };
 
 function decorateReqObject(req, token, jwtDecoded): void {
-  req.id = jwtDecoded.id;
+  req.userId = jwtDecoded.id;
   req.email = jwtDecoded.email;
   req.token = token;
 }

@@ -54,7 +54,7 @@ router.post('/', catchError(controller.register));
  * @returns {} 404 - Specified user not found
  * @returns {Error.model} 500 - Unexpected error
  */
-router.put('/', catchError(controller.update));
+router.put('/', auth, catchError(controller.update));
 
 /**
  * Update password
@@ -70,6 +70,19 @@ router.put('/', catchError(controller.update));
  * @returns {Error.model} 500 - Unexpected error
  * @security JWT
  */
-router.patch('/:id/change-password', auth, catchError(controller.changePassword));
+router.patch('/change-password', auth, catchError(controller.changePassword));
+
+/**
+ * Register user
+ * @route POST /users
+ * @param {UserRegisterReq.model} body.body.required An object of user
+ * @group Users - operations
+ * @operationId register
+ * @produces application/json
+ * @returns {UserRegisterRes.model} 201 - Created
+ * @returns {} 404 - Specified user not found
+ * @returns {Error.model} 500 - Unexpected error
+ */
+router.post('/characters', auth, catchError(controller.addCharacter));
 
 export default router;
