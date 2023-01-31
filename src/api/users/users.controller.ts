@@ -19,6 +19,16 @@ export default class UserController extends BaseController {
     super(User);
   }
 
+  public async findOne(req: IRequest, res: Response) {
+    const [err, data] = await to(User.findOne({ id: req.userId }, '-password').exec());
+
+    if (err) {
+      throwDBError(err);
+    }
+
+    data ? Ok(res, data) : NotFound(res);
+  }
+
   public async register(req: Request, res: Response) {
     const { email } = req.body;
     const [_, userExist] = await to(User.findOne({ email }).exec());

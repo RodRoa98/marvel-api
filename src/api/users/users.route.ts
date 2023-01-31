@@ -18,8 +18,6 @@ const auth = AuthMiddleware.authenticate({ logger, config });
 /**
  * Get users list
  * @route GET /users
- * @param {string} typeRes.query to: BACKOFFICE - optional
- * @param {string} email.query optional
  * @group Users - operations
  * @operationId findAll
  * @produces application/json
@@ -28,7 +26,7 @@ const auth = AuthMiddleware.authenticate({ logger, config });
  * @security JWT
  */
 // Retrieve all Users
-router.get('/', auth, catchError(controller.findAll));
+router.get('/', auth, catchError(controller.findOne));
 
 /**
  * Register user
