@@ -8,6 +8,7 @@ const character = {
   name: String,
   description: String,
   comicsQty: Number,
+  id: Number,
 };
 
 const userSchema = new Schema(

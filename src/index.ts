@@ -11,6 +11,6 @@ const logger = Logger.getLogger('app');
   const port = +process.env.PORT || config.service.port;
 
   app.listen(port, host, () => {
-    logger.info(`<${artifactInfo.name}> is listening on ${host}:${port}`);
+    logger.warn(`<${artifactInfo.name}> is listening on ${host}:${port}`);
   });
 })();

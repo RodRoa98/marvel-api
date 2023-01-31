@@ -5,7 +5,7 @@ default:
     databases:
       main:
         dialect: mongodb
-        host: mongodb+srv://@devroa.gofhu.mongodb.net/test
+        host: mongodb+srv://devroa.gofhu.mongodb.net/test
         port: 27017
         dbName: users
         user: roasg

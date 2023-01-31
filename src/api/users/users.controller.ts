@@ -99,7 +99,10 @@ export default class UserController extends BaseController {
       return NotFound(res, { message: 'User not found' });
     }
 
-    const newCharacterList = [...spreadMongoObj(userExist).characterList, character];
+    const characterList = spreadMongoObj(userExist).characterList;
+    const newCharacterList = characterList.some((c) => c.id === character.id)
+      ? characterList
+      : [...spreadMongoObj(userExist).characterList, character];
 
     const [updateErr, userUpdated] = await to(
       User.findOneAndUpdate({ id }, { characterList: newCharacterList }, { new: true }).exec()
